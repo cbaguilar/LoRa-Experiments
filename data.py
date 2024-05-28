@@ -4,7 +4,11 @@ import time
 
 import os
 
-def read_serial_data(port='/dev/ttyUSB0', baudrate=9600):
+LAPTOP_PORT = '/dev/ttyUSB0'
+PI_PORT = '/dev/ttyAMA0'
+
+
+def read_serial_data(port=PI_PORT, baudrate=9600):
     try:
         with open("dataout.csv", "a") as file:
             with serial.Serial(port, baudrate, timeout=1) as ser:
